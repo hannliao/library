@@ -22,7 +22,7 @@ function Book(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.info = function() {
-        return `${this.title},${this.author},${this.pages} pages,${this.read},`;
+        return `${this.title},${this.author},${this.pages} pages,`;
     }
 }
 
@@ -35,6 +35,14 @@ function libraryCatalog() {
         const card = document.createElement("div");
         card.setAttribute("index", i);
         card.innerHTML = book.info().replaceAll(",", "<br>");
+
+        const readButton = document.createElement("button");
+        readButton.textContent = book.read;
+        readButton.addEventListener("click", () => {
+            changeReadStatus(book);
+            readButton.textContent = book.read;
+        });
+        card.append(readButton);
 
         const removeButton = document.createElement("button");
         removeButton.textContent = "remove";
@@ -52,6 +60,12 @@ function clearCatalog() {
     catalog.innerHTML = "";
 }
 
+function changeReadStatus(book) {
+    if (book.read == "read") book.read = "not read yet";
+    else book.read = "read";
+}
+
+// add initial books to library
 addBookToLibrary(theHobbit);
 addBookToLibrary(toKillAMockingbird);
 addBookToLibrary(prideAndPrejudice);

@@ -1,7 +1,8 @@
 :root {
     --gray: #ededed;
+    --blue: rgb(15, 93, 149);
     --hovergray: #dedede;
-    --hoverblue: rgb(187, 212, 244);
+    --hoverblue: rgb(176, 212, 237);
 }
 
 * {
@@ -17,17 +18,28 @@ body {
     flex-direction: column;
 }
 
+h1 {
+    background-color: var(--blue);
+    color: white;
+    text-align: center;
+}
+
 h1,
 .catalog {
     padding: 40px;
 }
 
 #add {
-    padding: 20px;
+    padding: 40px;
     font-weight: bold;
     font-size: 25px;
-    background-color: var(--gray);
+    background-color: white;
     border: none;
+    box-shadow: 3px 3px 3px var(--hovergray);
+}
+
+#add:hover {
+    background-color: var(--hovergray);
 }
 
 .catalog {
@@ -35,6 +47,7 @@ h1,
     grid-template-columns: repeat(4, 250px);
     grid-auto-rows: 250px;
     gap: 20px;
+    justify-content: center;
 }
 
 .catalog div {
@@ -44,23 +57,24 @@ h1,
     text-align: center;
     background-color: white;
     border-radius: 10px;
+    box-shadow: 3px 3px 5px var(--hovergray);
     padding: 20px;
 }
 
 .catalog button {
     font-size: 14px;
-    padding: 6px 30px;
-    margin-top: 14px;
+    width: 150px;
+    padding: 6px;
+    margin-top: 10px;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 15px;
     font-weight: 300;
     background-color: white;
 }
 
 .catalog button:hover {
-    background-color: var(--hoverblue);
+    background-color: var(--hovergray);
 }
-
 
 dialog {
     width: 300px;
@@ -91,7 +105,7 @@ dialog button {
     padding: 10px 30px;
     background-color: var(--gray);
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #close:hover {
