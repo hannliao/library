@@ -1,0 +1,105 @@
+:root {
+    --gray: #ededed;
+    --hovergray: #dedede;
+    --hoverblue: rgb(187, 212, 244);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+.catalog {
+    padding: 40px;
+}
+
+#add {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: var(--gray);
+    border: none;
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-auto-rows: 300px;
+    gap: 20px;
+}
+
+.catalog div {
+    font-size: 20px;
+    align-content: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+dialog {
+    width: 300px;
+    height: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#modal {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+dialog button {
+    padding: 10px 30px;
+    background-color: var(--gray);
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+#close:hover {
+    background-color: var(--hovergray);
+}
+
+#submit:hover {
+    background-color: var(--hoverblue);
+}
+
+form * {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.form-row {
+    margin: 20px 0;
+}
+
+.form-row input[type="text"],
+.form-row input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
