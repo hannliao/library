@@ -22,7 +22,7 @@ function Book(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.info = function() {
-        return `${this.title},${this.author},${this.pages} pages,${this.read}`;
+        return `${this.title},${this.author},${this.pages} pages,${this.read},`;
     }
 }
 
@@ -31,11 +31,25 @@ function addBookToLibrary(book) {
 }
 
 function libraryCatalog() {
-    for (const book of library) {
+    for (let [i, book] of library.entries()) {
         const card = document.createElement("div");
+        card.setAttribute("index", i);
         card.innerHTML = book.info().replaceAll(",", "<br>");
+
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "remove";
+        removeButton.addEventListener("click", () => {
+            library.splice(card.getAttribute("index"), 1);
+            clearCatalog();
+            libraryCatalog();
+        });
+        card.append(removeButton);
         catalog.append(card);
     }
+}
+
+function clearCatalog() {
+    catalog.innerHTML = "";
 }
 
 addBookToLibrary(theHobbit);
@@ -60,8 +74,8 @@ addBookForm.addEventListener("submit", (event) => {
     const newBook = new Book(title.value, author.value, pages.value, 
         (readStatus.checked ? "read":"not read yet"));
     addBookToLibrary(newBook);
-    libraryCatalog(); // this reprints every book
-    // maybe re-purpose libraryCatalog() to print one card when a new book is added
+    clearCatalog();
+    libraryCatalog();
     addBookForm.reset();
     dialog.close();
 })
