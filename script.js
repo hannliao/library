@@ -83,7 +83,7 @@ class Modal {
     }
 
     closeModal() {
-        addBook.reset();
+        this.addBookForm.reset();
         this.dialog.close();
     }
 
