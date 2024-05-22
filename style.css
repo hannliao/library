@@ -136,3 +136,9 @@ form * {
 button:hover {
     cursor: pointer;
 }
+
+/* form validation */
+input[type="text"]:user-invalid,
+input[type="number"]:user-invalid {
+    border: 1px solid red;
+}
